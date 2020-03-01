@@ -4,7 +4,6 @@ class Piece:
         self.shape = shape
 
     def pretty_print(self):
-        ## TODO: make the print pretty
         for line in self.shape:
             out = ""
             for c in line:

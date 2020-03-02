@@ -4,13 +4,13 @@ class Piece:
 
     def __init__(self, shape, id):
         self._shape = shape
-        self.id = id
+        self._id = id
 
     def getShape(self):
         return deepcopy(self._shape)
 
     def getId(self):
-        return self.id
+        return self._id
 
     def prettyPrint(self):
         print(self.shapeAsText())

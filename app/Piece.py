@@ -6,14 +6,20 @@ class Piece:
         self._shape = shape
         self._id = id
 
+    def prettyPrint(self):
+        print(self.shapeAsText())
+
+    def rotate(self, isClockwise):
+        return 8
+
+    def flip(self, isX):
+        return 8
+
     def getShape(self):
         return deepcopy(self._shape)
 
     def getId(self):
         return self._id
-
-    def prettyPrint(self):
-        print(self.shapeAsText())
 
     def getShapeText(self):
         return ("\n").join(

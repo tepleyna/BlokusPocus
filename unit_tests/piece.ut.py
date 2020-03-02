@@ -35,11 +35,11 @@ class TestPiece(unittest.TestCase):
         for shape in shapes:
             i += 1
             with tp.subTest(j = i):
-                    p = Piece(shape, i)
-                    # not using assertListEqual()because order matters
-                    piece_shape = p.getShape()
-                    tp.assertEqual(piece_shape, shape)
-                    tp.assertNotEqual(piece_shape, [['o']])
+                p = Piece(shape, i)
+                # not using assertListEqual()because order matters
+                piece_shape = p.getShape()
+                tp.assertEqual(piece_shape, shape)
+                tp.assertNotEqual(piece_shape, [['o']])
 
     def testShapesNotMutable(tp):
         original_shape = [ ['x','x','o'] ]
@@ -54,8 +54,8 @@ class TestPiece(unittest.TestCase):
 
     def testGetShapeText(tp):
         shapes = [[ ['x'] ] ,
-        [['x','x'],
-        ['x','o']]]
+            [['x','x'],
+            ['x','o']]]
         expected = [ "x" , "xx\nxo" ]
         for i in range(len(shapes)):
             with tp.subTest(j = i):

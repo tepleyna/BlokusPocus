@@ -52,5 +52,15 @@ class TestPiece(unittest.TestCase):
         tp.assertEqual(piece_shape, original_shape)
         tp.assertNotEqual(piece_shape, mutated_copy)
 
+    def testGetShapeText(tp):
+        shapes = [[ ['x'] ] ,
+        [['x','x'],
+        ['x','o']]]
+        expected = [ "x" , "xx\nxo" ]
+        for i in range(len(shapes)):
+            with tp.subTest(j = i):
+                p = Piece(shapes[i], i)
+                tp.assertEqual(p.getShapeText(), expected[i])
+
 if __name__ == '__main__':
     unittest.main()

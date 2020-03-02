@@ -15,7 +15,7 @@ class Piece:
     def prettyPrint(self):
         print(self.shapeAsText())
 
-    def shapeAsText(self):
+    def getShapeText(self):
         return ("\n").join(
             ( ("").join(line) ) for line in self._shape)
 

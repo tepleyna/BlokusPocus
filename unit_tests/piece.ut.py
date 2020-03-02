@@ -5,10 +5,6 @@ sys.path.append("../..")
 from BlokusPocus.app.piece import Piece, allShapes
 
 class TestPiece(unittest.TestCase):
-
-    # TODO: shape as text
-    # TODO: rotatec rotatecc flipxy shape  (mutate and getter)
-
     def testSetUp(tp):
         shapes = allShapes()
         pieces = []
@@ -61,6 +57,13 @@ class TestPiece(unittest.TestCase):
             with tp.subTest(j = i):
                 p = Piece(shapes[i], i)
                 tp.assertEqual(p.getShapeText(), expected[i])
+
+    def testRotate(tp):
+        pass
+
+    def testFlip(tp):
+        ## TODO: do
+        pass
 
 if __name__ == '__main__':
     unittest.main()

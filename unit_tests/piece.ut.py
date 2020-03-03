@@ -26,20 +26,18 @@ class TestPiece(unittest.TestCase):
 
     def testGetShapeEqual(tp):
         shapes = allShapes()
-
         i = 0
         for shape in shapes:
             i += 1
             with tp.subTest(j = i):
                 p = Piece(shape, i)
-                # not using assertListEqual()because order matters
                 piece_shape = p.getShape()
                 tp.assertEqual(piece_shape, shape)
                 tp.assertNotEqual(piece_shape, [['o']])
 
     def testShapesNotMutable(tp):
         original_shape = [ ['x','x','o'] ]
-        piece = Piece(copy.deepcopy(original_shape), 3) #splicing ensures original is safe
+        piece = Piece(copy.deepcopy(original_shape), 3)
 
         mutated_copy = piece.getShape()
         mutated_copy[0][1] = 'M'
@@ -58,12 +56,65 @@ class TestPiece(unittest.TestCase):
                 p = Piece(shapes[i], i)
                 tp.assertEqual(p.getShapeText(), expected[i])
 
-    def testRotate(tp):
-        pass
+    def testRotateClockwise(tp):
+        shapes = [[ ['x'] ] , #1
+            [ ['x','x'] ] ,   #2
+            [['x','x'],      #3
+            ['x','o']]]
+        expected = [[ ['x'] ] ,
+            [ ['x'],['x']],
+            [['x','x'],
+            ['o','x']]]
+        for i in range(len(shapes)):
+            with tp.subTest(j = i):
+                p = Piece(shapes[i], i)
+                tp.assertEqual(p.rotate(True), expected[i])
+                tp.assertEqual(p.getShape(), expected[i])
 
-    def testFlip(tp):
-        ## TODO: do
-        pass
+    def testRotateCounterC(tp):
+        shapes = [[ ['x'] ] , #1
+            [ ['x','x'] ],   #2
+            [['x','x'],    #3
+            ['x','o']]]
+        expected = [[ ['x'] ] ,
+            [ ['x'],['x']],
+            [['x','o'],
+            ['x','x']]]
+        for i in range(len(shapes)):
+            with tp.subTest(j = i):
+                p = Piece(shapes[i], i)
+                tp.assertEqual(p.rotate(False), expected[i])
+                tp.assertEqual(p.getShape(), expected[i])
+
+    def testFlipX(tp):
+        shapes = [[ ['x'] ] , #1
+            [ ['x','x'] ],   #2
+            [['x','x'],     #3
+            ['x','o']]]
+        expected = [[ ['x'] ] ,
+            [ ['x','x']],
+            [['x','o'],
+            ['x','x']]]
+        for i in range(len(shapes)):
+            with tp.subTest(j = i):
+                p = Piece(shapes[i], i)
+                tp.assertEqual(p.rotate(False), expected[i])
+                tp.assertEqual(p.getShape(), expected[i])
+
+    def testFlipY(tp):
+        shapes = [[ ['x'] ] , #1
+            [ ['x','x'] ],   #2
+            [['x','x'],     #3
+            ['x','o']]]
+        expected = [[ ['x'] ] ,
+            [ ['x','x']],
+            [['x','x'],
+            ['o','x']]]
+        for i in range(len(shapes)):
+            with tp.subTest(j = i):
+                p = Piece(shapes[i], i)
+                tp.assertEqual(p.rotate(False), expected[i])
+                tp.assertEqual(p.getShape(), expected[i])
 
 if __name__ == '__main__':
     unittest.main()

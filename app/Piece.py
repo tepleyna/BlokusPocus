@@ -13,7 +13,12 @@ class Piece:
         return 8
 
     def flip(self, isX):
-        return 8
+        if isX:
+            self._shape.reverse()
+        else:
+            for outer_index in range(len(self._shape)):
+                self._shape[outer_index].reverse()
+        return self.getShape()
 
     def getShape(self):
         return deepcopy(self._shape)

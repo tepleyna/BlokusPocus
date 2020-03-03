@@ -60,11 +60,12 @@ class TestPiece(unittest.TestCase):
         shapes = [[ ['x'] ] , #1
             [ ['x','x'] ] ,   #2
             [['x','x'],      #3
+            ['x','o'],
             ['x','o']]]
         expected = [[ ['x'] ] ,
             [ ['x'],['x']],
-            [['x','x'],
-            ['o','x']]]
+            [['x','x','x'],
+            ['o','o','x']]]
         for i in range(len(shapes)):
             with tp.subTest(j = i):
                 p = Piece(shapes[i], i)

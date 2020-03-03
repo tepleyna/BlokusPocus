@@ -10,7 +10,12 @@ class Piece:
         print(self.shapeAsText())
 
     def rotate(self, isClockwise):
-        return 8
+        # 1. transpose
+        # 2. if clockwise,
+        #.    A. flip in the Y
+        #.    B. else flip by X
+        self._transpose()
+        return self.flip(-isClockwise)
 
     def flip(self, isX):
         if isX:
@@ -31,9 +36,8 @@ class Piece:
             ( ("").join(line) ) for line in self._shape)
 
     def _transpose(self):
-        return [[self._shape[x][y] for x in range(len(self._shape))]
+        self._shape = [[self._shape[x][y] for x in range(len(self._shape))]
          for y in range(len(self._shape[0]))]
-
 
 
 def allShapes():

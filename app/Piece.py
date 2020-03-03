@@ -30,6 +30,11 @@ class Piece:
         return ("\n").join(
             ( ("").join(line) ) for line in self._shape)
 
+    def _transpose(self):
+        return [[self._shape[x][y] for x in range(len(self._shape))]
+         for y in range(len(self._shape[0]))]
+
+
 
 def allShapes():
     return ([

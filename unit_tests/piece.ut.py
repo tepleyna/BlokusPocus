@@ -98,7 +98,7 @@ class TestPiece(unittest.TestCase):
         for i in range(len(shapes)):
             with tp.subTest(j = i):
                 p = Piece(shapes[i], i)
-                tp.assertEqual(p.flip(False), expected[i])
+                tp.assertEqual(p.flip(True), expected[i])
                 tp.assertEqual(p.getShape(), expected[i])
 
     def testFlipY(tp):

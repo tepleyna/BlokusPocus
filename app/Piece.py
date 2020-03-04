@@ -15,7 +15,7 @@ class Piece:
         #.    A. flip in the Y
         #.    B. else flip by X
         self._transpose()
-        return self.flip(-isClockwise)
+        return self.flip(not isClockwise)
 
     def flip(self, isX):
         if isX:

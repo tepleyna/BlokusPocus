@@ -1,7 +1,6 @@
 from copy import deepcopy
 
 class Piece:
-
     def __init__(self, shape, id):
         self._shape = shape
         self._id = id

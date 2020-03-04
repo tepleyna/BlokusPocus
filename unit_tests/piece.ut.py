@@ -2,7 +2,7 @@ import unittest, sys, copy
 
 sys.path.append("../")
 sys.path.append("../..")
-from BlokusPocus.app.piece import Piece, allShapes
+from BlokusPocus.app.Piece import Piece, allShapes
 
 class TestPiece(unittest.TestCase):
     def testSetUp(tp):
